@@ -19,11 +19,15 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+var gestorBD = require("./modules/gestorBD.js");
+gestorBD.init(app,mongo);
+
 app.use(express.static('public'));
 
 // Variables
 app.set('port', 8081);
-app.set('db','mongodb://admin:sdi@ds241489.mlab.com:41489/tiendamusica');
+//app.set('db','mongodb://admin:sdi@ds241489.mlab.com:41489/tiendamusica');
+app.set('db','mongodb://admin:sdi@ds255329.mlab.com:55329/proyectosdi-node');
 app.set('clave','abcdefg');
 app.set('crypto',crypto);
 
