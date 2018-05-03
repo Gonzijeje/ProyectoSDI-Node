@@ -1,4 +1,10 @@
 module.exports = function(app, swig, gestorBD) {
+
+    app.get("/", function (req, res) {
+        var respuesta = swig.renderFile('views/bindex.html', {});
+        res.send(respuesta);
+    })
+
     app.get("/usuarios", function(req, res) {
         var criterio = {};
         if( req.query.busqueda != null ){
@@ -35,8 +41,8 @@ module.exports = function(app, swig, gestorBD) {
         res.send(respuesta);
     });
 
-    app.post('/usuario', function(req, res) {
-        if(req.body.password.toString()!=req.body.passwordConfirm.toString()){
+    app.post("/registrarse", function(req, res) {
+        if(req.body.password!=req.body.passwordConfirm){
             res.redirect("/registrarse?mensaje=Las contraseñas deben coincidir");
             return;
         }
@@ -50,9 +56,10 @@ module.exports = function(app, swig, gestorBD) {
         }
         gestorBD.insertarUsuario(usuario, function(id) {
             if (id == null){
-                res.redirect("/registrarse?mensaje=Error al registrar usuario")
+                res.redirect("/registrarse?mensaje=El usuario ya está registrado")
             } else {
-                res.redirect("/identificarse?mensaje=Nuevo usuario registrado");            }
+                res.redirect("/usuarios");
+            }
         });
     })
 
