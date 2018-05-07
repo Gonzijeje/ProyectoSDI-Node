@@ -45,6 +45,23 @@ module.exports = {
             }
         });
     },
+    obtenerUsuario : function(criterio,funcionCallback){
+        this.mongo.MongoClient.connect(this.app.get('db'), function(err, db) {
+            if (err) {
+                funcionCallback(null);
+            } else {
+                var collection = db.collection('usuarios');
+                collection.find(criterio).toArray(function(err, usuarios) {
+                    if (err) {
+                        funcionCallback(null);
+                    } else {
+                        funcionCallback(usuarios);
+                    }
+                    db.close();
+                });
+            }
+        });
+    },
     obtenerCompras : function(criterio,funcionCallback){
         this.mongo.MongoClient.connect(this.app.get('db'), function(err, db) {
             if (err) {
@@ -69,6 +86,40 @@ module.exports = {
             } else {
                 var collection = db.collection('compras');
                 collection.insert(compra, function(err, result) {
+                    if (err) {
+                        funcionCallback(null);
+                    } else {
+                        funcionCallback(result.ops[0]._id);
+                    }
+                    db.close();
+                });
+            }
+        });
+    },
+    obtenerInvitaciones: function(criterio, functionCallback){
+        this.mongo.MongoClient.connect(this.app.get('db'), function(err, db) {
+            if (err) {
+                functionCallback(null);
+            } else {
+                var collection = db.collection('amigos');
+                collection.find(criterio).toArray(function(err, invitaciones) {
+                    if (err) {
+                        functionCallback(null);
+                    } else {
+                        functionCallback(invitaciones);
+                    }
+                    db.close();
+                });
+            }
+        });
+    },
+    añadirAmigo: function(amigo, funcionCallback) {
+        this.mongo.MongoClient.connect(this.app.get('db'), function(err, db) {
+            if (err) {
+                funcionCallback(null);
+            } else {
+                var collection = db.collection('amigos');
+                collection.insert(amigo, function(err, result) {
                     if (err) {
                         funcionCallback(null);
                     } else {

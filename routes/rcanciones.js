@@ -27,7 +27,7 @@ module.exports = function(app, swig, mongo, gestorBD) {
             "nombre" : "Uptown Funk",
             "precio" : "1.1"
         } ];
-        var respuesta = swig.renderFile('views/btienda.html', {
+        var respuesta = swig.renderFile('views/bUsuarios.html', {
             vendedor : 'Tienda de canciones',
             canciones : canciones
         });
@@ -124,7 +124,7 @@ module.exports = function(app, swig, mongo, gestorBD) {
                     pgUltima = pgUltima+1;
                 }
 
-                var respuesta = swig.renderFile('views/btienda.html',
+                var respuesta = swig.renderFile('views/bUsuarios.html',
                     {
                         canciones : canciones,
                         pgActual : pg,
@@ -137,7 +137,7 @@ module.exports = function(app, swig, mongo, gestorBD) {
             if (canciones == null) {
                 res.send("Error al listar ");
             } else {
-                var respuesta = swig.renderFile('views/btienda.html',
+                var respuesta = swig.renderFile('views/bUsuarios.html',
                     {
                         canciones : canciones
                     });

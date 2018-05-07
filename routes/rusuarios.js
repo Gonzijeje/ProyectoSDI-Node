@@ -25,7 +25,7 @@ module.exports = function(app, swig, gestorBD) {
                     pgUltima = pgUltima+1;
                 }
 
-                var respuesta = swig.renderFile('views/btienda.html',
+                var respuesta = swig.renderFile('views/bUsuarios.html',
                     {
                         usuarios : usuarios,
                         pgActual : pg,
@@ -88,6 +88,49 @@ module.exports = function(app, swig, gestorBD) {
             }
         });
     });
+
+    app.get('/usuario/anadir/:email', function(req, res){
+        var emisor  = req.session.usuario;
+        var emailAmigo = req.params.email;
+        var invitacion = {
+            emisor : emisor,
+            amigo : emailAmigo,
+            aceptada : false
+        }
+
+        gestorBD.añadirAmigo(invitacion, function (idAmigo) {
+            if(idAmigo == null){
+                res.send("Error al añadir amigo");
+            }
+            else{
+                res.redirect("/usuarios");
+            }
+        })
+    })
+    
+    app.get('/usuario/listInvitations', function (req, res) {
+        var criterio = {
+            "email" : req.session.usuario
+        };
+        gestorBD.obtenerUsuario(criterio, function(usuarios) {
+            if (usuarios == null) {
+                res.send("No existe usuario");
+            } else {
+                var usuario = usuarios[0].nombre;
+                var criterio = {$and : [{amigo : req.session.usuario}, {aceptada : false}]};
+                gestorBD.obtenerInvitaciones(criterio, function(invita){
+                    var respuesta = swig.renderFile('views/blistInvitations.html',
+                        {
+                            invitaciones : invita
+                        });
+                    res.send(respuesta);
+                })
+
+            }
+        });
+    })
+
+
 
     app.get('/desconectarse', function (req, res) {
         req.session.usuario = null;
