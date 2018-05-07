@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block titulo %} Listado de invitaciones {% endblock %}
+{% block contenido_principal %}
+	<div class="container">
+		<h2 >Tus invitaciones:</h2>
+		<p>Los usuarios que te han enviado una petición son los siguientes:</p>
+		<div class="table-responsive">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th class="col-md-1"></th>
+						<th class="col-md-1"></th>
+						<th class="col-md-1"></th>
+						<th class="col-md-1"></th>
+						<th class="col-md-1"></th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for invitacion in invitaciones %}
+					<tr>
+						<td><div>
+							<div>
+								<a>{{invitacion.emisor}}</a>
+							</div>						
+							</div></td>
+						<td>Aceptar petición</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}
