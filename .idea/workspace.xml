@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb61331d-7062-4d1f-b303-f6c747e2a21e" name="Default" comment="">
+    <list default="true" id="eb61331d-7062-4d1f-b303-f6c747e2a21e" name="Default" comment="Hice el punto 5 y parte del 6. Documentación del 5 hecha.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/gestorBD.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/gestorBD.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/rcanciones.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/rcanciones.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/rusuarios.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/rusuarios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/btienda.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/bUsuarios.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -42,8 +37,8 @@
       <file leaf-file-name="rusuarios.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/rusuarios.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="123" column="49" lean-forward="true" selection-start-line="123" selection-start-column="49" selection-end-line="123" selection-end-column="49" />
+            <state relative-caret-position="451">
+              <caret line="129" column="11" selection-start-line="129" selection-start-column="11" selection-end-line="129" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -92,8 +87,8 @@
         <option value="$PROJECT_DIR$/modules/gestorBD.js" />
         <option value="$PROJECT_DIR$/views/btienda.html" />
         <option value="$PROJECT_DIR$/views/listFriends.html" />
-        <option value="$PROJECT_DIR$/routes/rusuarios.js" />
         <option value="$PROJECT_DIR$/views/listInvitations.html" />
+        <option value="$PROJECT_DIR$/routes/rusuarios.js" />
       </list>
     </option>
   </component>
@@ -204,7 +199,7 @@
       <workItem from="1524579650874" duration="724000" />
       <workItem from="1524585139058" duration="9162000" />
       <workItem from="1525331489528" duration="5599000" />
-      <workItem from="1525687326535" duration="17507000" />
+      <workItem from="1525687326535" duration="17959000" />
     </task>
     <task id="LOCAL-00001" summary="Corregida alguna cosa. Falta comprobar que el email no exista ya en la BBDD. También mirar paginación, da algún error.">
       <created>1525337102444</created>
@@ -213,23 +208,36 @@
       <option name="project" value="LOCAL" />
       <updated>1525337102444</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Hice el punto 5 y parte del 6. Documentación del 5 hecha.">
+      <created>1525708494258</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1525708494259</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Hice el punto 5 y parte del 6. Documentación del 5 hecha.">
+      <created>1525708578784</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1525708578784</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32992000" />
+    <option name="totallyTimeSpent" value="33444000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="814" height="867" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20426065" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.375625" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.500625" side_tool="true" visible="true" weight="0.35085413" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32978722" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3550532" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.499375" visible="true" weight="0.35085413" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -250,18 +258,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Corregida alguna cosa. Falta comprobar que el email no exista ya en la BBDD. También mirar paginación, da algún error." />
-    <option name="LAST_COMMIT_MESSAGE" value="Corregida alguna cosa. Falta comprobar que el email no exista ya en la BBDD. También mirar paginación, da algún error." />
+    <MESSAGE value="Hice el punto 5 y parte del 6. Documentación del 5 hecha." />
+    <option name="LAST_COMMIT_MESSAGE" value="Hice el punto 5 y parte del 6. Documentación del 5 hecha." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/routes/rusuarios.js</url>
-          <line>118</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="16" />
     </breakpoint-manager>
   </component>
@@ -449,8 +450,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/rusuarios.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="123" column="49" lean-forward="true" selection-start-line="123" selection-start-column="49" selection-end-line="123" selection-end-column="49" />
+        <state relative-caret-position="451">
+          <caret line="129" column="11" selection-start-line="129" selection-start-column="11" selection-end-line="129" selection-end-column="11" />
         </state>
       </provider>
     </entry>
