@@ -61,7 +61,7 @@ module.exports = function(app, swig, gestorBD) {
                 res.redirect("/usuarios");
             }
         });
-    })
+    });
 
     app.get("/identificarse", function(req, res) {
         var respuesta = swig.renderFile('views/bidentificacion.html', {});
@@ -89,7 +89,7 @@ module.exports = function(app, swig, gestorBD) {
         });
     });
 
-    app.get('/usuario/anadir/:email', function(req, res){
+    app.get('/usuarios/anadir/:email', function(req, res){
         var emisor  = req.session.usuario;
         var emailAmigo = req.params.email;
         var invitacion = {
@@ -97,7 +97,6 @@ module.exports = function(app, swig, gestorBD) {
             amigo : emailAmigo,
             aceptada : false
         }
-
         gestorBD.añadirAmigo(invitacion, function (idAmigo) {
             if(idAmigo == null){
                 res.send("Error al añadir amigo");
@@ -106,9 +105,9 @@ module.exports = function(app, swig, gestorBD) {
                 res.redirect("/usuarios");
             }
         })
-    })
+    });
     
-    app.get('/usuario/listInvitations', function (req, res) {
+    app.get('/usuarios/listInvitations', function (req, res) {
         var criterio = {
             "email" : req.session.usuario
         };
@@ -128,10 +127,45 @@ module.exports = function(app, swig, gestorBD) {
 
             }
         });
+    });
+    app.get('/usuarios/listInvitations/aceptar/:id', function (req, res) {
+        var criterio = {
+            "_id" : gestorBD.mongo.ObjectID(req.params.id)
+        };
+        var atributos = {
+            aceptada : true,
+            enviada : 2
+        }
+        gestorBD.aceptarInvitacion(criterio, atributos, function (aceptada) {
+            if(aceptada == null){
+                res.send("Error al añadir amigo");
+            }
+            else{
+                res.redirect('/usuarios/listInvitations');
+            }
+        })
+    });
+    app.get('/usuarios/listFriends', function(req, res){
+        var criterio = {$and : [{$or : [{emisor : req.session.usuario}, {amigo : req.session.usuario}]}, {aceptada : true}]};
+        gestorBD.obtenerInvitaciones(criterio, function (invitaciones) {
+            if(invitaciones == null){
+                res.send("Error");
+            }
+            else{
+                var usuariosAmigos = [];
+                for(i=0; i<invitaciones.length; i++){
+                    if(invitaciones[i].amigo == req.session.usuario)
+                        usuariosAmigos.push(invitaciones[i].emisor);
+                    else
+                        usuariosAmigos.push(invitaciones[i].amigo);
+                }
+                var respuesta = swig.renderFile('views/listFriends.html', {
+                    usuarios:usuariosAmigos
+                });
+                res.send(respuesta);
+            }
+        })
     })
-
-
-
     app.get('/desconectarse', function (req, res) {
         req.session.usuario = null;
         res.send("Usuario desconectado");

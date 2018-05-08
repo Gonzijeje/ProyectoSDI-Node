@@ -32,8 +32,10 @@
         <tr>
             <td>{{ usuario.nombre }}</td>
             <td>{{ usuario.email }}</td>
-            <td><a class="btn btn-primary pull-right"
-                   href="/usuario/anadir/{{ usuario.email}}">Añadir amigo</a></td>
+            <td>
+                <a class="btn btn-primary pull-right"
+                   href="/usuarios/anadir/{{ usuario.email}}">Añadir amigo</a>
+            </td>
         </tr>
         {% endfor %}
         </tbody>
