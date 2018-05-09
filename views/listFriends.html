@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block titulo %} Listado de amigos {% endblock %}
 {% block contenido_principal %}
-	<div class="container">
+
 		<h2>Tus amigos:</h2>
 		<form class="navbar-form" action="/usuarios/listFriends">
 		</form>
@@ -25,13 +25,46 @@
 					<tr>
 						<td><div>
 							<div>
-								<p>{{usuario}}</p>
+								<p>{{usuario.nombre}}</p>
 							</div>
 						</div></td>
+						<td>{{usuario.email}}</td>
 					</tr>
 					{% endfor %}
 				</tbody>
 			</table>
 		</div>
-	</div>
+
+<div class="row text-center">
+	<ul class="pagination">
+		<!-- Primera -->
+		<li class="page-item" >
+			<a class="page-link" href="/usuarios/listFriends?pg=1" >Primera</a>
+		</li>
+
+		<!-- Anterior (si la hay ) -->
+		{% if pgActual-1 >= 1 %}
+		<li class="page-item">
+			<a class="page-link" href="/usuarios/listFriends?pg={{ pgActual -1 }}" >{{ pgActual -1 }}</a>
+		</li>
+		{% endif %}
+
+		<!-- Actual -->
+		<li class="page-item active" >
+			<a class="page-link" href="/usuarios/listFriends?pg={{ pgActual }}">{{ pgActual }}</a>
+		</li>
+
+		<!-- Siguiente (si la hay) -->
+		{% if pgActual+1 <= pgUltima %}
+		<li class="page-item">
+			<a class="page-link" href="/usuarios/listFriends?pg={{ pgActual+1 }}" >{{ pgActual+1 }}</a>
+		</li>
+		{% endif %}
+
+		<!-- Última -->
+		<li class="page-item" >
+			<a class="page-link" href="/usuarios/listFriends?pg={{ pgUltima }}" >Última</a>
+		</li>
+	</ul>
+</div>
 {% endblock %}

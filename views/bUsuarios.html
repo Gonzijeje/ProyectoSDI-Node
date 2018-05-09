@@ -47,31 +47,31 @@
     <ul class="pagination">
         <!-- Primera -->
         <li class="page-item" >
-            <a class="page-link" href="/tienda?pg=1" >Primera</a>
+            <a class="page-link" href="/usuarios?pg=1" >Primera</a>
         </li>
 
         <!-- Anterior (si la hay ) -->
         {% if pgActual-1 >= 1 %}
         <li class="page-item">
-            <a class="page-link" href="/tienda?pg={{ pgActual -1 }}" >{{ pgActual -1 }}</a>
+            <a class="page-link" href="/usuarios?pg={{ pgActual -1 }}" >{{ pgActual -1 }}</a>
         </li>
         {% endif %}
 
         <!-- Actual -->
         <li class="page-item active" >
-            <a class="page-link" href="/tienda?pg={{ pgActual }}">{{ pgActual }}</a>
+            <a class="page-link" href="/usuarios?pg={{ pgActual }}">{{ pgActual }}</a>
         </li>
 
         <!-- Siguiente (si la hay) -->
         {% if pgActual+1 <= pgUltima %}
         <li class="page-item">
-            <a class="page-link" href="/tienda?pg={{ pgActual+1 }}" >{{ pgActual+1 }}</a>
+            <a class="page-link" href="/usuarios?pg={{ pgActual+1 }}" >{{ pgActual+1 }}</a>
         </li>
         {% endif %}
 
         <!-- Última -->
         <li class="page-item" >
-            <a class="page-link" href="/tienda?pg={{ pgUltima }}" >Última</a>
+            <a class="page-link" href="/usuarios?pg={{ pgUltima }}" >Última</a>
         </li>
     </ul>
 </div>

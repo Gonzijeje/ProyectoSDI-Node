@@ -1,7 +1,7 @@
 module.exports = function(app, swig, gestorBD) {
 
     app.get("/", function (req, res) {
-        var respuesta = swig.renderFile('views/bindex.html', {});
+        var respuesta = swig.renderFile('views/bindex.html', {user : req.session.usuario});
         res.send(respuesta);
     })
 
@@ -108,25 +108,28 @@ module.exports = function(app, swig, gestorBD) {
     });
     
     app.get('/usuarios/listInvitations', function (req, res) {
-        var criterio = {
-            "email" : req.session.usuario
-        };
-        gestorBD.obtenerUsuario(criterio, function(usuarios) {
-            if (usuarios == null) {
-                res.send("No existe usuario");
+        var pg = parseInt(req.query.pg);
+        if ( req.query.pg == null){
+            pg = 1;
+        }
+        var criterio = {$and : [{amigo : req.session.usuario}, {aceptada : false}]};
+        gestorBD.obtenerInvitacionesPg(criterio, pg, function(invita, total){
+            if (invita == null) {
+                res.send("Error al listar ");
             } else {
-                var usuario = usuarios[0].nombre;
-                var criterio = {$and : [{amigo : req.session.usuario}, {aceptada : false}]};
-                gestorBD.obtenerInvitaciones(criterio, function(invita){
-                    var respuesta = swig.renderFile('views/blistInvitations.html',
-                        {
-                            invitaciones : invita
-                        });
-                    res.send(respuesta);
-                })
-
+                var pgUltima = invita.length / 5;
+                if (invita.length % 5 > 0) {
+                    pgUltima = pgUltima + 1;
+                }
+                var respuesta = swig.renderFile('views/blistInvitations.html',
+                    {
+                        invitaciones: invita,
+                        pgActual: pg,
+                        pgUltima: pgUltima
+                    });
+                res.send(respuesta);
             }
-        });
+        })
     });
     app.get('/usuarios/listInvitations/aceptar/:id', function (req, res) {
         var criterio = {
@@ -134,7 +137,6 @@ module.exports = function(app, swig, gestorBD) {
         };
         var atributos = {
             aceptada : true,
-            enviada : 2
         }
         gestorBD.aceptarInvitacion(criterio, atributos, function (aceptada) {
             if(aceptada == null){
@@ -159,10 +161,30 @@ module.exports = function(app, swig, gestorBD) {
                     else
                         usuariosAmigos.push(invitaciones[i].amigo);
                 }
-                var respuesta = swig.renderFile('views/listFriends.html', {
-                    usuarios:usuariosAmigos
+                var criterio2 = { email : {$in : usuariosAmigos}};
+                var pg = parseInt(req.query.pg);
+                if ( req.query.pg == null){
+                    pg = 1;
+                }
+                gestorBD.obtenerUsuariosPg(criterio2, pg, function (usuarios, total) {
+                    if (usuarios == null) {
+                        res.send("Error al listar ");
+                    } else {
+
+                        var pgUltima = total/5;
+                        if (total % 5 > 0 ){ // Sobran decimales
+                            pgUltima = pgUltima+1;
+                        }
+
+                        var respuesta = swig.renderFile('views/listFriends.html',
+                            {
+                                usuarios : usuarios,
+                                pgActual : pg,
+                                pgUltima : pgUltima
+                            });
+                        res.send(respuesta);
+                    }
                 });
-                res.send(respuesta);
             }
         })
     })
