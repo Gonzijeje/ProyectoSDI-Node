@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="eb61331d-7062-4d1f-b303-f6c747e2a21e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/gestorBD.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/gestorBD.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/rusuarios.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/rusuarios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/bUsuarios.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/bUsuarios.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/blistInvitations.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/blistInvitations.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/listFriends.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/listFriends.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -237,7 +231,7 @@
       <workItem from="1525687326535" duration="18035000" />
       <workItem from="1525765011517" duration="11043000" />
       <workItem from="1525779551876" duration="2503000" />
-      <workItem from="1525863542632" duration="6723000" />
+      <workItem from="1525863542632" duration="6998000" />
     </task>
     <task id="LOCAL-00001" summary="Corregida alguna cosa. Falta comprobar que el email no exista ya en la BBDD. También mirar paginación, da algún error.">
       <created>1525337102444</created>
@@ -288,22 +282,28 @@
       <option name="project" value="LOCAL" />
       <updated>1525776171786</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Nuevos avances y añadido sistema de paginación.">
+      <created>1525871821174</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1525871821174</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53789000" />
+    <option name="totallyTimeSpent" value="54064000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.129375" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.129375" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50625" side_tool="true" visible="true" weight="0.35085413" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49375" visible="true" weight="0.35085413" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49375" visible="true" weight="0.35085413" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -328,7 +328,8 @@
     <MESSAGE value="Hice el punto 5 y parte del 6. Documentación del 5 hecha." />
     <MESSAGE value="Hecho hasta el 8 (incluido), falta meter paginación, y que en el punto 5, cuando envíes una invitación, no te deje volver a enviarla otra vez." />
     <MESSAGE value="Metida vista que faltaba." />
-    <option name="LAST_COMMIT_MESSAGE" value="Metida vista que faltaba." />
+    <MESSAGE value="Nuevos avances y añadido sistema de paginación." />
+    <option name="LAST_COMMIT_MESSAGE" value="Nuevos avances y añadido sistema de paginación." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
