@@ -13,8 +13,8 @@ module.exports = function(app, swig, gestorBD) {
             criterio = {$OR : [{"nombre" : {$regex : ".*"+req.query.busqueda+".*"}},
                     {"email" : {$regex : ".*"+req.query.busqueda+".*"}}] };
         }
-        var pg = parseInt(req.query.pg); // Es String !!!
-        if ( req.query.pg == null){ // Puede no venir el param
+        var pg = parseInt(req.query.pg);
+        if ( req.query.pg == null){
             pg = 1;
         }
         gestorBD.obtenerUsuariosPg(criterio, pg , function(usuarios, total ) {
