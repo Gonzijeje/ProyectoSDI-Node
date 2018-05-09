@@ -1,7 +1,9 @@
 module.exports = function(app, swig, gestorBD) {
 
     app.get("/", function (req, res) {
-        var respuesta = swig.renderFile('views/bindex.html', {user : req.session.usuario});
+        var respuesta = swig.renderFile('views/bindex.html', {
+            userLogged : req.session.usuario
+        });
         res.send(respuesta);
     })
 
@@ -29,7 +31,8 @@ module.exports = function(app, swig, gestorBD) {
                     {
                         usuarios : usuarios,
                         pgActual : pg,
-                        pgUltima : pgUltima
+                        pgUltima : pgUltima,
+                        userLogged : req.session.usuario
                     });
                 res.send(respuesta);
             }
@@ -68,6 +71,7 @@ module.exports = function(app, swig, gestorBD) {
                 res.redirect('/registrarse?mensaje=El email introducido ya se encuentra en el sistema')
             }
         });
+
     });
 
     app.get("/identificarse", function(req, res) {
@@ -132,7 +136,8 @@ module.exports = function(app, swig, gestorBD) {
                     {
                         invitaciones: invita,
                         pgActual: pg,
-                        pgUltima: pgUltima
+                        pgUltima: pgUltima,
+                        userLogged : req.session.usuario
                     });
                 res.send(respuesta);
             }
@@ -187,7 +192,8 @@ module.exports = function(app, swig, gestorBD) {
                             {
                                 usuarios : usuarios,
                                 pgActual : pg,
-                                pgUltima : pgUltima
+                                pgUltima : pgUltima,
+                                userLogged : req.session.usuario
                             });
                         res.send(respuesta);
                     }

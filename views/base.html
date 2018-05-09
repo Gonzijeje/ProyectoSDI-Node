@@ -26,14 +26,20 @@
     <div class="collapse navbar-collapse" id="myNavbar">
 
       <ul class="nav navbar-nav">
-          <li id="mUsuarios"><a href="/usuarios">Usuarios</a></li>
-          <li id="mInvitaciones"><a href="/usuarios/listInvitations">Mostrar Invitaciones</a></li>
-          <li id="mAmigos"><a href="/usuarios/listFriends">Mostrar Amigos</a></li>
+        {% if userLogged!=null %}
+            <li id="mUsuarios"><a href="/usuarios">Usuarios</a></li>
+            <li id="mInvitaciones"><a href="/usuarios/listInvitations">Mostrar Invitaciones</a></li>
+            <li id="mAmigos"><a href="/usuarios/listFriends">Mostrar Amigos</a></li>
+        {% endif %}
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-	    <li><a href="/registrarse"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
-        <li><a href="/identificarse"><span class="glyphicon glyphicon-log-in"></span> Identifícate</a></li>
+        {% if userLogged==null %}
+	      <li><a href="/registrarse"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
+          <li><a href="/identificarse"><span class="glyphicon glyphicon-log-in"></span> Identifícate</a></li>
+        {% else %}
+          <li><a href="/desconectarse"><span class="glyphicon glyphicon-log-in"></span> Desconectarse</a></li>
+        {% endif %}
       </ul>
     </div>
   </div>
