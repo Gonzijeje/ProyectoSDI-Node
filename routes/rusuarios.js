@@ -1,7 +1,9 @@
 module.exports = function(app, swig, gestorBD) {
 
     app.get("/", function (req, res) {
-        var respuesta = swig.renderFile('views/bindex.html', {user : req.session.usuario});
+        var respuesta = swig.renderFile('views/bindex.html', {
+            userLogged : req.session.usuario
+        });
         res.send(respuesta);
     })
 
@@ -29,7 +31,8 @@ module.exports = function(app, swig, gestorBD) {
                     {
                         usuarios : usuarios,
                         pgActual : pg,
-                        pgUltima : pgUltima
+                        pgUltima : pgUltima,
+                        userLogged : req.session.usuario
                     });
                 res.send(respuesta);
             }
@@ -54,13 +57,24 @@ module.exports = function(app, swig, gestorBD) {
             password : seguro,
             passwordConfirm : seguro
         }
-        gestorBD.insertarUsuario(usuario, function(id) {
-            if (id == null){
+        var criterio = {
+            email : req.body.email,
+        }
+        gestorBD.obtenerUsuarios(criterio, function(usuarios) {
+            if (usuarios.length > 0) {
                 res.redirect("/registrarse?mensaje=El usuario ya está registrado")
             } else {
-                res.redirect("/usuarios");
+                gestorBD.insertarUsuario(usuario, function (id) {
+                    if (id == null) {
+                        res.redirect("/registrarse?mensaje=El usuario ya está registrado")
+                    } else {
+                        req.session.usuario = usuario.email;
+                        res.redirect("/usuarios");
+                    }
+                });
             }
         });
+
     });
 
     app.get("/identificarse", function(req, res) {
@@ -125,7 +139,8 @@ module.exports = function(app, swig, gestorBD) {
                     {
                         invitaciones: invita,
                         pgActual: pg,
-                        pgUltima: pgUltima
+                        pgUltima: pgUltima,
+                        userLogged : req.session.usuario
                     });
                 res.send(respuesta);
             }
@@ -180,7 +195,8 @@ module.exports = function(app, swig, gestorBD) {
                             {
                                 usuarios : usuarios,
                                 pgActual : pg,
-                                pgUltima : pgUltima
+                                pgUltima : pgUltima,
+                                userLogged : req.session.usuario
                             });
                         res.send(respuesta);
                     }
