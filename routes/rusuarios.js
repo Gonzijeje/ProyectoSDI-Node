@@ -54,24 +54,21 @@ module.exports = function(app, swig, gestorBD) {
         var usuario = {
             email : req.body.email,
             nombre : req.body.nombre,
-            password : seguro,
-            passwordConfirm : seguro
-        }
-        var criterio = {
-            email : req.body.email,
-        }
-        gestorBD.obtenerUsuarios(criterio, function(usuarios) {
-            if (usuarios.length > 0) {
-                res.redirect("/registrarse?mensaje=El usuario ya está registrado")
-            } else {
-                gestorBD.insertarUsuario(usuario, function (id) {
-                    if (id == null) {
-                        res.redirect("/registrarse?mensaje=El usuario ya está registrado")
+            password : seguro
+        };
+        var criterio = { email : req.body.email };
+        gestorBD.obtenerUsuarios(criterio, function (usuarioObtenido) {
+            if(usuarioObtenido == null){
+                gestorBD.insertarUsuario(usuario, function(id) {
+                    if (id == null){
+                        res.redirect("/registrarse?mensaje=Error")
                     } else {
-                        req.session.usuario = usuario.email;
                         res.redirect("/usuarios");
                     }
                 });
+            }
+            else{
+                res.redirect('/registrarse?mensaje=El email introducido ya se encuentra en el sistema')
             }
         });
 
@@ -131,8 +128,8 @@ module.exports = function(app, swig, gestorBD) {
             if (invita == null) {
                 res.send("Error al listar ");
             } else {
-                var pgUltima = invita.length / 5;
-                if (invita.length % 5 > 0) {
+                var pgUltima = total / 5;
+                if (total % 5 > 0) {
                     pgUltima = pgUltima + 1;
                 }
                 var respuesta = swig.renderFile('views/blistInvitations.html',

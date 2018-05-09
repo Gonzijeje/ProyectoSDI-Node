@@ -11,7 +11,7 @@ module.exports = {
                 funcionCallback(null);
             } else {
                 var collection = db.collection('usuarios');
-                collection.count(function(err, count){
+                collection.count(criterio, function(err, count){
                     collection.find(criterio).skip( (pg-1)*5 ).limit( 5 )
                         .toArray(function(err, usuarios) {
                             if (err) {
@@ -65,7 +65,7 @@ module.exports = {
                 functionCallback(null);
             } else {
                 var collection = db.collection('amigos');
-                collection.count(function(err, count){
+                collection.count(criterio, function(err, count){
                     collection.find(criterio).skip( (pg-1)*5 ).limit( 5 ).toArray(function(err, invitaciones) {
                         if (err) {
                             functionCallback(null);
