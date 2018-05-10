@@ -1,5 +1,6 @@
 module.exports = function(app, gestorBD) {
 
+
     //S1
     app.post("/api/autenticar", function(req, res) {
         var seguro = app.get("crypto").createHmac('sha256', app.get('clave'))

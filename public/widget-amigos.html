@@ -1,0 +1,76 @@
+<div id="widget-amigos">
+    <button class="btn" onclick="cargarAmigos()">Actualizar</button>
+    <button class="btn btn-primary" onclick="widgetAgregar()">Nueva
+        Canción</button>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th class="col-md-1"></th>
+        </tr>
+        </thead>
+        <tbody id="tablaCuerpo">
+        </tbody>
+    </table>
+</div>
+<script>
+    var usuarios;
+    function cargarAmigos() {
+        $.ajax({
+            url : URLbase + "/usuarios",
+            type : "GET",
+            data : {},
+            dataType : 'json',
+            headers : {
+                "token" : token
+            },
+            success : function(respuesta) {
+                usuarios = respuesta;
+                actualizarTabla(usuarios);
+            },
+            error : function(error) {
+                $("#contenedor-principal").load("widget-login.html");
+            }
+        });
+    }
+    function actualizarTabla(usuariosMostrar) {
+        $("#tablaCuerpo").empty(); // Vaciar la tabla
+        for (i = 0; i < usuariosMostrar.length; i++) {
+            $("#tablaCuerpo").append(
+                "<tr id="+usuariosMostrar[i]._id+">" + "<td>"
+                + usuariosMostrar[i].nombre + "</td>" + "<td>"
+                + usuariosMostrar[i].email + "</td>" + "<td>"
+                + "<a onclick=detalles('" + usuariosMostrar[i]._id
+                + "')>Detalles</a><br>" + "<a onclick=eliminar('"
+                + usuariosMostrar[i]._id + "')>Eliminar</a>"
+                + "</td>" + "</tr>"); // Mucho cuidado con las comillas del eliminarCancion //la id tiene que ir entre comillas ' '
+        }
+    }
+    function eliminar(_id) {
+        $.ajax({
+            url : URLbase + "/cancion/" + _id,
+            type : "DELETE",
+            data : {},
+            dataType : 'json',
+            headers : {
+                "token" : token
+            },
+            success : function(respuesta) {
+                console.log("Eliminada: " + _id);
+                $("#" + _id).remove(); // eliminar el <tr> de la canción
+            },
+            error : function(error) {
+                $("#contenedor-principal").load("widget-login.html");
+            }
+        });
+    }
+    cargarAmigos();
+    function detalles(_id) {
+        idCancionSeleccionada = _id;
+        $("#contenedor-principal").load("widget-detalles.html");
+    }
+    function widgetAgregar() {
+        $("#contenedor-principal").load("widget-agregar.html");
+    }
+</script>
