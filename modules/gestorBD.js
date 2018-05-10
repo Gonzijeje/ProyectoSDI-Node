@@ -63,7 +63,7 @@ module.exports = {
             }
         });
     },
-    añadirAmigo: function(amigo, funcionCallback) {
+    enviarInvitacion: function(amigo, funcionCallback) {
         this.mongo.MongoClient.connect(this.app.get('db'), function(err, db) {
             if (err) {
                 funcionCallback(null);

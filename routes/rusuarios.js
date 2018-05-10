@@ -10,8 +10,8 @@ module.exports = function(app, swig, gestorBD) {
     app.get("/usuarios", function(req, res) {
         var criterio = {};
         if( req.query.busqueda != null ){
-            criterio = {$OR : [{"nombre" : {$regex : ".*"+req.query.busqueda+".*"}},
-                    {"email" : {$regex : ".*"+req.query.busqueda+".*"}}] };
+            criterio = {$or : [{nombre : {$regex : ".*"+req.query.busqueda+".*"}},
+                    {email : {$regex : ".*"+req.query.busqueda+".*"}}] };
         }
         var pg = parseInt(req.query.pg);
         if ( req.query.pg == null){
@@ -19,20 +19,19 @@ module.exports = function(app, swig, gestorBD) {
         }
         gestorBD.obtenerUsuariosPg(criterio, pg , function(usuarios, total ) {
             if (usuarios == null) {
-                res.send("Error al listar ");
+                res.send("/usuarios?mensaje=No hay usuarios");
             } else {
 
-                var pgUltima = total/5;
-                if (total % 5 > 0 ){ // Sobran decimales
-                    pgUltima = pgUltima+1;
+                var pgUltima = total / 5;
+                if (total % 5 > 0) {
+                    pgUltima = pgUltima + 1;
                 }
-
                 var respuesta = swig.renderFile('views/bUsuarios.html',
                     {
-                        usuarios : usuarios,
-                        pgActual : pg,
-                        pgUltima : pgUltima,
-                        userLogged : req.session.usuario
+                        usuarios: usuarios,
+                        pgActual: pg,
+                        pgUltima: pgUltima,
+                        userLogged: req.session.usuario
                     });
                 res.send(respuesta);
             }
@@ -107,13 +106,21 @@ module.exports = function(app, swig, gestorBD) {
             emisor : emisor,
             amigo : emailAmigo,
             aceptada : false
-        }
-        gestorBD.añadirAmigo(invitacion, function (idAmigo) {
-            if(idAmigo == null){
-                res.send("Error al añadir amigo");
+        };
+        var criterio = {$and : [{$or : [{emisor : emisor}, {amigo : emisor}]}, {$or : [{emisor : emailAmigo}, {amigo : emailAmigo}]}]};
+        gestorBD.obtenerInvitaciones(criterio, function (invitaciones) {
+            if(invitaciones == null || invitaciones.length == 0){
+                gestorBD.enviarInvitacion(invitacion, function (idAmigo) {
+                    if(idAmigo == null){
+                        res.send("Error al añadir amigo");
+                    }
+                    else{
+                        res.redirect("/usuarios");
+                    }
+                })
             }
             else{
-                res.redirect("/usuarios");
+                res.redirect('/usuarios?mensaje=No se puede agregar a ese usuario');
             }
         })
     });
@@ -203,6 +210,6 @@ module.exports = function(app, swig, gestorBD) {
     })
     app.get('/desconectarse', function (req, res) {
         req.session.usuario = null;
-        res.send("Usuario desconectado");
+        res.redirect("/identificarse");
     })
 };

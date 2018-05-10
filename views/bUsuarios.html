@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% block titulo %} Tienda – uoMusic {% endblock %}
+{% block titulo %} Red Social {% endblock %}
 {% block contenido_principal %}
 <!-- Búsqueda -->
 <div class="row">
     <div id="custom-search-input ">
-        <form method="get" action="/tienda" >
+        <form method="get" action="/usuarios" >
             <div
                     class="input-group col-xs-8 col-sm-6 col-md-4 col-lg-5 pull-right">
                 <input type="text" class="search-query form-control"
@@ -29,14 +29,16 @@
         </thead>
         <tbody>
         {% for usuario in usuarios %}
-        <tr>
-            <td>{{ usuario.nombre }}</td>
-            <td>{{ usuario.email }}</td>
-            <td>
-                <a class="btn btn-primary pull-right"
-                   href="/usuarios/anadir/{{ usuario.email}}">Añadir amigo</a>
-            </td>
-        </tr>
+            {% if usuario.email != userLogged %}
+                <tr>
+                    <td>{{ usuario.nombre }}</td>
+                    <td>{{ usuario.email }}</td>
+                    <td>
+                        <a class="btn btn-primary pull-right"
+                           href="/usuarios/anadir/{{ usuario.email}}">Añadir amigo</a>
+                    </td>
+                </tr>
+            {% endif %}
         {% endfor %}
         </tbody>
     </table>
