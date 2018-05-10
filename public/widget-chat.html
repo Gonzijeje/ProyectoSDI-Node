@@ -1,0 +1,76 @@
+<div id="widget-chat">
+    <h2>Lista de tus mensajes:</h2>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Mensaje</th>
+            <th class="col-md-1"></th>
+        </tr>
+        </thead>
+        <tbody id="tablaCuerpo">
+        </tbody>
+    </table>
+</div><div>
+    <input type="text" class="form-control"
+           placeholder="Escribe un mensaje" id="enviar-mensaje"/>
+    <span class="input-group-btn">
+             <button class="btn" onclick="enviarMensaje()">Enviar Mensaje</button>
+        </span>
+</div>
+<script>
+
+    var mensajes;
+    function cargarMensajes() {
+        $.ajax({
+            url : URLbase + "/mensajes",
+            type : "GET",
+            data : {
+                "destino" : emailUsuarioSeleccionado
+            },
+            dataType : 'json',
+            headers : {
+                "token" : token
+            },
+            success : function(respuesta) {
+                mensajes = respuesta;
+                actualizarTabla(mensajes);
+            },
+            error : function(error) {
+                $("#contenedor-principal").load("widget-login.html");
+            }
+        });
+    }
+    function actualizarTabla(mensajesMostrar) {
+        $("#tablaCuerpo").empty(); // Vaciar la tabla
+        for (i = 0; i < mensajesMostrar.length; i++) {
+            $("#tablaCuerpo").append(
+                "<tr id="+mensajesMostrar[i]._id+">" + "<td>"
+                + mensajesMostrar[i].texto + "</td>"+ "</tr>");
+        }
+    }
+    function enviarMensaje() {
+        $.ajax({
+            url: URLbase + "/mensajes",
+            type: "POST",
+            data: {
+                destino: emailUsuarioSeleccionado,
+                texto: $("#enviar-mensaje").val()
+            },
+            dataType: 'json',
+            headers: {
+                "token": token
+            },
+            success: function (respuesta) {
+                cargarMensajes();
+                $("#enviar-mensaje").val('');
+            },
+            error: function (error) {
+                $("#contenedor-principal").load("widget-login.html");
+            }
+        });
+    }
+
+    setInterval(function() {
+        cargarMensajes(); }, 100);
+
+</script>
