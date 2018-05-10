@@ -1,8 +1,8 @@
-module.exports = function(app, swig, gestorBD) {
+module.exports = function(app, gestorBD) {
 
     app.get("/api/usuarios", function(req, res) {
         gestorBD.obtenerUsuarios( {} , function(usuarios) {
-            if (canciones == null) {
+            if (usuarios == null) {
                 res.status(500);
                 res.json({
                     error : "se ha producido un error"
