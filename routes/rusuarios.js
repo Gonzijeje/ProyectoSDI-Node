@@ -57,11 +57,12 @@ module.exports = function(app, swig, gestorBD) {
         };
         var criterio = { email : req.body.email };
         gestorBD.obtenerUsuarios(criterio, function (usuarioObtenido) {
-            if(usuarioObtenido == null){
+            if(usuarioObtenido == null || usuarioObtenido.length == 0){
                 gestorBD.insertarUsuario(usuario, function(id) {
                     if (id == null){
                         res.redirect("/registrarse?mensaje=Error")
                     } else {
+                        req.session.usuario = usuario.email;
                         res.redirect("/usuarios");
                     }
                 });
@@ -107,7 +108,13 @@ module.exports = function(app, swig, gestorBD) {
             amigo : emailAmigo,
             aceptada : false
         };
-        var criterio = {$and : [{$or : [{emisor : emisor}, {amigo : emisor}]}, {$or : [{emisor : emailAmigo}, {amigo : emailAmigo}]}]};
+        var criterio = {
+            $or: [{
+                emisor: emisor,amigo: emailAmigo
+            },{
+                emisor: emailAmigo,amigo: emisor
+            }]
+        };
         gestorBD.obtenerInvitaciones(criterio, function (invitaciones) {
             if(invitaciones == null || invitaciones.length == 0){
                 gestorBD.enviarInvitacion(invitacion, function (idAmigo) {

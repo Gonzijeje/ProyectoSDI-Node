@@ -166,6 +166,23 @@ module.exports = {
                 });
             }
         });
-    }
+    },
+    leerMensaje: function(criterio, atributos, funcionCallback){
+        this.mongo.MongoClient.connect(this.app.get('db'), function(err, db) {
+            if (err) {
+                funcionCallback(null);
+            } else {
+                var collection = db.collection('mensajes');
+                collection.update(criterio, {$set: atributos}, function (err, obj) {
+                    if (err) {
+                        funcionCallback(null);
+                    } else {
+                        funcionCallback(obj);
+                    }
+                    db.close();
+                });
+            }
+        });
+    },
 
 };
