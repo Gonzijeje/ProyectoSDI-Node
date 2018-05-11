@@ -22,7 +22,8 @@ module.exports = function(app, gestorBD) {
                 res.status(200);
                 res.json({
                     autenticado : true,
-                    token : token
+                    token : token,
+                    email : req.body.email
                 })
             }
         });
@@ -41,7 +42,6 @@ module.exports = function(app, gestorBD) {
         };
         gestorBD.obtenerInvitaciones( criterio , function(invitaciones) {
             if (invitaciones == null) {
-                console.log("Inivtaciones falla");
                 res.status(500);
                 res.json({
                     error : "se ha producido un error"
@@ -57,7 +57,6 @@ module.exports = function(app, gestorBD) {
                 var criterio2 = { email : {$in : usuariosAmigos}};
                 gestorBD.obtenerUsuarios(criterio2, function(usuarios) {
                     if (usuarios == null) {
-                        console.log("Usuarios falla");
                         res.status(500);
                         res.json({
                             error : "se ha producido un error"
@@ -158,7 +157,7 @@ module.exports = function(app, gestorBD) {
                     error : "no existe mensaje con este identificador: " + req.params.id
                 })
             } else {
-                if(mensajes.destino != res.usuario){
+                if(mensajes[0].destino != res.usuario){
                     res.status(403);
                     res.json({
                         error: "es necesario ser destinatario del mensaje para poder leerlo"

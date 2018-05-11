@@ -33,6 +33,7 @@
         success: function(respuesta) {
             console.log(respuesta.token);
             token = respuesta.token;
+            email = respuesta.email;
             $( "#contenedor-principal" ).load( "widget-amigos.html");
         },
         error : function (error){

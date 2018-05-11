@@ -1,13 +1,16 @@
 <div id="widget-chat">
-    <h2>Lista de tus mensajes:</h2>
+    <h2 id="tituloChat">Lista de tus mensajes:</h2>
     <table class="table table-hover">
         <thead>
         <tr>
             <th>Mensaje</th>
+            <th>Emisor</th>
+            <th>Receptor</th>
+            <th>Leido</th>
             <th class="col-md-1"></th>
         </tr>
         </thead>
-        <tbody id="tablaCuerpo">
+        <tbody id="tablaCuerpoChat">
         </tbody>
     </table>
 </div><div>
@@ -41,11 +44,18 @@
         });
     }
     function actualizarTabla(mensajesMostrar) {
-        $("#tablaCuerpo").empty(); // Vaciar la tabla
+        $("#tablaCuerpoChat").empty(); // Vaciar la tabla
         for (i = 0; i < mensajesMostrar.length; i++) {
-            $("#tablaCuerpo").append(
+            if(mensajesMostrar[i].destino==email) {
+                marcarMensajeLeido(mensajesMostrar[i]._id);
+            }
+            $("#tablaCuerpoChat").append(
                 "<tr id="+mensajesMostrar[i]._id+">" + "<td>"
-                + mensajesMostrar[i].texto + "</td>"+ "</tr>");
+                + mensajesMostrar[i].texto + "</td>" + "<td>"
+                + mensajesMostrar[i].emisor + "</td>" + "<td>"
+                + mensajesMostrar[i].destino + "</td>" + "<td>"
+                + mensajesMostrar[i].leido + "</td>" +
+                "</tr>");
         }
     }
     function enviarMensaje() {
@@ -70,7 +80,29 @@
         });
     }
 
+    function marcarMensajeLeido(_id) {
+        $.ajax({
+            url: URLbase + "/mensajes/"+_id,
+            type: "PUT",
+            data: {},
+            dataType: 'json',
+            headers: {
+                "token": token
+            },
+            success: function (respuesta) {
+
+            },
+            error: function (error) {
+
+                $("#contenedor-principal").load("widget-login.html");
+            }
+        });
+    }
+
     setInterval(function() {
-        cargarMensajes(); }, 100);
+        if( $("#tituloChat").is(":visible")){
+            cargarMensajes();
+        }
+    }, 1000);
 
 </script>
