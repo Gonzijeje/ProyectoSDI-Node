@@ -34,7 +34,7 @@
                     <td>{{ usuario.nombre }}</td>
                     <td>{{ usuario.email }}</td>
                     <td>
-                        <a class="btn btn-primary pull-right"
+                        <a id="{{ usuario.email }}" class="btn btn-primary pull-right"
                            href="/usuarios/anadir/{{ usuario.email}}">Añadir amigo</a>
                     </td>
                 </tr>

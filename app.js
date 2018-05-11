@@ -99,6 +99,11 @@ require("./routes/rcanciones.js")(app, swig, mongo,gestorBD); // (app, param1, p
 require("./routes/rapiusuarios.js")(app, gestorBD);
 
 
+app.get('/resetBD', function (req, res) {
+    gestorBD.resetBD();
+    res.redirect("/registrarse?mensaje=La base de datos ha sido reseteada");
+});
+
 app.use( function (err, req, res, next ) {
     console.log("Error producido: " + err); //we log the error in our db
     if (! res.headersSent) {

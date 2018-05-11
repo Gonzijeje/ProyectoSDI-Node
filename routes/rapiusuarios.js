@@ -146,37 +146,39 @@ module.exports = function(app, gestorBD) {
 
     //S5
     app.put('/api/mensajes/:id', function (req, res) {
-        var criterio = {
-            $and: [{
-                destino: res.usuario
-            },{
-                "_id" : gestorBD.mongo.ObjectID(req.params.id)
-            }]
+        var criterio = {"_id" : gestorBD.mongo.ObjectID(req.params.id)
         };
         var atributos = {
             leido : true,
         }
         gestorBD.obtenerMensajes( criterio , function(mensajes) {
             if (mensajes == null || mensajes.length == 0) {
-                res.status(500);
+                res.status(400);
                 res.json({
-                    error : "se ha producido un error"
+                    error : "no existe mensaje con este identificador: " + req.params.id
                 })
             } else {
-                gestorBD.leerMensaje(criterio, atributos, function (leida) {
-                    if(leida == null){
-                        res.status(500);
-                        res.json({
-                            error : "se ha producido un error"
-                        })
-                    }
-                    else{
-                        res.status(200);
-                        res.json({
-                            error : "mensaje leído con éxito"
-                        })
-                    }
-                })
+                if(mensajes.destino != res.usuario){
+                    res.status(403);
+                    res.json({
+                        error: "es necesario ser destinatario del mensaje para poder leerlo"
+                    });
+                }else {
+                    gestorBD.leerMensaje(criterio, atributos, function (leida) {
+                        if (leida == null) {
+                            res.status(500);
+                            res.json({
+                                error: "se ha producido un error"
+                            })
+                        }
+                        else {
+                            res.status(200);
+                            res.json({
+                                error: "mensaje leído con éxito"
+                            })
+                        }
+                    })
+                }
             }
         });
     });

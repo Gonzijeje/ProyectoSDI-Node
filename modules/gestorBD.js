@@ -184,5 +184,20 @@ module.exports = {
             }
         });
     },
+    resetBD: function (funcionCallback) {
+        this.mongo.MongoClient.connect(this.app.get('db'), function (err, db) {
+            if(err){
+                funcionCallback(null);
+            } else{
+                var usuarios = db.collection('usuarios');
+                var amigos = db.collection('amigos');
+                var mensajes = db.collection('mensajes');
 
+                usuarios.remove();
+                amigos.remove();
+                mensajes.remove();
+            }
+
+        });
+    }
 };
