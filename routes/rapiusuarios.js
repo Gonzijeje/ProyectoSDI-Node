@@ -143,6 +143,33 @@ module.exports = function(app, gestorBD) {
         });
     });
 
+    app.get("/api/mensajes/noleidos", function(req, res) {
+        var emailEmisor = res.usuario;
+        var emailAmigo = req.query.destino;
+        var criterio = {
+            $and:[{
+                $or: [{
+                    emisor: emailEmisor,destino: emailAmigo
+                },{
+                    emisor: emailAmigo,destino: emailEmisor
+                }],
+                leido : false
+            }]
+
+        };
+        gestorBD.obtenerMensajes( criterio , function(mensajes) {
+            if (mensajes == null) {
+                res.status(500);
+                res.json({
+                    error : "se ha producido un error"
+                })
+            } else {
+                res.status(200);
+                res.send( JSON.stringify(mensajes) );
+            }
+        });
+    });
+
     //S5
     app.put('/api/mensajes/:id', function (req, res) {
         var criterio = {"_id" : gestorBD.mongo.ObjectID(req.params.id)

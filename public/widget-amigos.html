@@ -13,6 +13,7 @@
         <tr>
             <th>Nombre</th>
             <th>Email</th>
+            <th>Mensajes sin leer</th>
             <th class="col-md-1"></th>
         </tr>
         </thead>
@@ -40,13 +41,38 @@
             }
         });
     }
+    function cargarMensajesNoLeidos(email) {
+        $.ajax({
+            url : URLbase + "/mensajes/noleidos",
+            type : "GET",
+            data : {
+                destino : email,
+                leido : false
+            },
+            dataType : 'json',
+            headers : {
+                "token" : token
+            },
+            success : function(respuesta) {
+                var element = document.getElementById(email);
+                console.log(element.innerHTML+" || "+respuesta.length);
+                element.innerHTML=respuesta.length
+            },
+            error : function(error) {
+                $("#contenedor-principal").load("widget-login.html");
+            }
+        });
+    }
     function actualizarTabla(usuariosMostrar) {
         $("#tablaCuerpo").empty(); // Vaciar la tabla
         for (i = 0; i < usuariosMostrar.length; i++) {
+            cargarMensajesNoLeidos(usuariosMostrar[i].email);
+            //Falta poner el valor de sinLeer, que no lo pilla.
             $("#tablaCuerpo").append(
                 "<tr id="+usuariosMostrar[i]._id+">" + "<td>"
                 + "<a onclick=mostrarChat('"+usuariosMostrar[i].email+"')>"+usuariosMostrar[i].nombre + "</a>" +"</td>" + "<td>"
-                + usuariosMostrar[i].email + "</td>"+"</tr>");
+                + usuariosMostrar[i].email + "</td>"+"<td>" + "<p id="+usuariosMostrar[i].email+">"+"caca"+"</p>"
+                                + "</td>"+"</tr>");
         }
     }
     cargarAmigos();
@@ -70,5 +96,6 @@
         emailUsuarioSeleccionado = email;
         $( "#contenedor-principal" ).load( "widget-chat.html" );
     }
+
 
 </script>
