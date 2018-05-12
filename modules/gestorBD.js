@@ -131,8 +131,25 @@ module.exports = {
             }
         });
     },
+    actualizarLastMessage: function(criterio, atributos, funcionCallback){
+        this.mongo.MongoClient.connect(this.app.get('db'), function(err, db) {
+            if (err) {
+                funcionCallback(null);
+            } else {
+                var collection = db.collection('usuarios');
+                collection.update(criterio, {$set: atributos}, function (err, obj) {
+                    if (err) {
+                        funcionCallback(null);
+                    } else {
+                        funcionCallback(obj);
+                    }
+                    db.close();
+                });
+            }
+        });
+    },
 
-    //MENSAJES
+    //MENSAJES----------------------------------------
     insertarMensaje : function(mensaje, funcionCallback) {
         this.mongo.MongoClient.connect(this.app.get('db'), function(err, db) {
             if (err) {
@@ -184,6 +201,8 @@ module.exports = {
             }
         });
     },
+
+    //BASE DE DATOS--------------------------------
     resetBD: function (funcionCallback) {
         this.mongo.MongoClient.connect(this.app.get('db'), function (err, db) {
             if(err){

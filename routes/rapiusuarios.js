@@ -62,6 +62,9 @@ module.exports = function(app, gestorBD) {
                             error : "se ha producido un error"
                         })
                     } else {
+                        for(i=0;i<usuarios.length;i++){
+                            console.log(usuarios[i].lastMessage);
+                        }
                         res.status(200);
                         res.send( JSON.stringify(usuarios) );
                     }
@@ -74,6 +77,17 @@ module.exports = function(app, gestorBD) {
     app.post("/api/mensajes", function(req, res) {
         var emailEmisor = res.usuario;
         var emailAmigo = req.body.destino;
+        var atributos = {
+            lastMessage : new Date().getTime(),
+        }
+        var criterio3 = {
+            //email : emailAmigo,
+            email : emailEmisor
+        };
+        var criterio2 = {
+            email : emailAmigo,
+            //email : emailEmisor
+        };
         var criterio = {
             $and: [{
                 $or: [{
@@ -101,6 +115,27 @@ module.exports = function(app, gestorBD) {
                             error: "se ha producido un error"
                         })
                     } else {
+                        gestorBD.actualizarLastMessage(criterio2,atributos, function (leida){
+                            if (leida == null) {
+                                res.status(500);
+                                res.json({
+                                    error: "se ha producido un error"
+                                })
+                            }
+                            else {
+                            }
+                        });
+                        gestorBD.actualizarLastMessage(criterio3,atributos, function (leida2){
+                            if (leida2 == null) {
+                                res.status(500);
+                                res.json({
+                                    error: "se ha producido un error"
+                                })
+                            }
+                            else {
+                            }
+                        });
+
                         res.status(201);
                         res.json({
                             mensaje: "mensaje insertardo",
@@ -148,11 +183,8 @@ module.exports = function(app, gestorBD) {
         var emailAmigo = req.query.destino;
         var criterio = {
             $and:[{
-                $or: [{
-                    emisor: emailEmisor,destino: emailAmigo
-                },{
-                    emisor: emailAmigo,destino: emailEmisor
-                }],
+                emisor: emailAmigo,destino: emailEmisor
+                ,
                 leido : false
             }]
 

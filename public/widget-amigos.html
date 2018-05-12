@@ -35,6 +35,7 @@
             success : function(respuesta) {
                 usuarios = respuesta;
                 actualizarTabla(usuarios);
+                ordenarPorLastMessage();
             },
             error : function(error) {
                 $("#contenedor-principal").load("widget-login.html");
@@ -65,15 +66,14 @@
     function actualizarTabla(usuariosMostrar) {
         $("#tablaCuerpo").empty(); // Vaciar la tabla
         for (i = 0; i < usuariosMostrar.length; i++) {
-            //console.log(usuariosMostrar[i].lastMessage);
             cargarMensajesNoLeidos(usuariosMostrar[i].email);
-            //Falta poner el valor de sinLeer, que no lo pilla.
             $("#tablaCuerpo").append(
                 "<tr id="+usuariosMostrar[i]._id+">" + "<td>"
                 + "<a onclick=mostrarChat('"+usuariosMostrar[i].email+"')>"+usuariosMostrar[i].nombre + "</a>" +"</td>" + "<td>"
                 + usuariosMostrar[i].email + "</td>"+"<td>" + "<p id="+usuariosMostrar[i].email+">"+""+"</p>"
                                 + "</td>"+"</tr>");
         }
+
     }
     cargarAmigos();
 
@@ -95,6 +95,15 @@
     function mostrarChat(email) {
         emailUsuarioSeleccionado = email;
         $( "#contenedor-principal" ).load( "widget-chat.html" );
+    }
+
+    function ordenarPorLastMessage() {
+        usuarios.sort(function (a, b) {
+            if (a.lastMessage > b.lastMessage) return -1;
+            if (a.lastMessage < b.lastMessage) return 1;
+            return 0;
+        });
+        actualizarTabla(usuarios);
     }
 
     setInterval(function() {

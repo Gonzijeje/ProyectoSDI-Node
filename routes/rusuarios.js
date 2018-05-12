@@ -53,7 +53,8 @@ module.exports = function(app, swig, gestorBD) {
         var usuario = {
             email : req.body.email,
             nombre : req.body.nombre,
-            password : seguro
+            password : seguro,
+            lastMessage : 0
         };
         var criterio = { email : req.body.email };
         gestorBD.obtenerUsuarios(criterio, function (usuarioObtenido) {
