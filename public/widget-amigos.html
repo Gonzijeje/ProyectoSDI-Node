@@ -1,5 +1,5 @@
 <div id="widget-amigos">
-    <h2>Lista de tus amigos:</h2>
+    <h2 id="tituloAmigos">Lista de tus amigos:</h2>
     <div class="input-group col-xs-8 col-sm-6 col-md-4 col-lg-5 pull-right">
         <input type="text" class="form-control"
                placeholder="Filtrar por nombre" id="filtro-nombre"/>
@@ -55,7 +55,6 @@
             },
             success : function(respuesta) {
                 var element = document.getElementById(email);
-                console.log(element.innerHTML+" || "+respuesta.length);
                 element.innerHTML=respuesta.length
             },
             error : function(error) {
@@ -66,12 +65,13 @@
     function actualizarTabla(usuariosMostrar) {
         $("#tablaCuerpo").empty(); // Vaciar la tabla
         for (i = 0; i < usuariosMostrar.length; i++) {
+            //console.log(usuariosMostrar[i].lastMessage);
             cargarMensajesNoLeidos(usuariosMostrar[i].email);
             //Falta poner el valor de sinLeer, que no lo pilla.
             $("#tablaCuerpo").append(
                 "<tr id="+usuariosMostrar[i]._id+">" + "<td>"
                 + "<a onclick=mostrarChat('"+usuariosMostrar[i].email+"')>"+usuariosMostrar[i].nombre + "</a>" +"</td>" + "<td>"
-                + usuariosMostrar[i].email + "</td>"+"<td>" + "<p id="+usuariosMostrar[i].email+">"+"caca"+"</p>"
+                + usuariosMostrar[i].email + "</td>"+"<td>" + "<p id="+usuariosMostrar[i].email+">"+""+"</p>"
                                 + "</td>"+"</tr>");
         }
     }
@@ -96,6 +96,14 @@
         emailUsuarioSeleccionado = email;
         $( "#contenedor-principal" ).load( "widget-chat.html" );
     }
+
+    setInterval(function() {
+        if( $("#tituloAmigos").is(":visible")){
+            for (i = 0; i < usuarios.length; i++) {
+                cargarMensajesNoLeidos(usuarios[i].email);
+            }
+        }
+    }, 1000);
 
 
 </script>
