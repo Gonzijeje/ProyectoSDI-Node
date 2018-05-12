@@ -2,7 +2,7 @@
     <h2 id="tituloAmigos">Lista de tus amigos:</h2>
     <div class="input-group col-xs-8 col-sm-6 col-md-4 col-lg-5 pull-right">
         <input type="text" class="form-control"
-               placeholder="Filtrar por nombre" id="filtro-nombre"/>
+               placeholder="Filtrar por nombre" id="filtro-nombre"  name="busqueda"/>
         <span class="input-group-btn">
              <button class="btn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
         </span>
@@ -69,7 +69,7 @@
             cargarMensajesNoLeidos(usuariosMostrar[i].email);
             $("#tablaCuerpo").append(
                 "<tr id="+usuariosMostrar[i]._id+">" + "<td>"
-                + "<a onclick=mostrarChat('"+usuariosMostrar[i].email+"')>"+usuariosMostrar[i].nombre + "</a>" +"</td>" + "<td>"
+                + "<a id='"+usuariosMostrar[i].nombre+"' onclick=mostrarChat('"+usuariosMostrar[i].email+"')>"+usuariosMostrar[i].nombre + "</a>" +"</td>" + "<td>"
                 + usuariosMostrar[i].email + "</td>"+"<td>" + "<p id="+usuariosMostrar[i].email+">"+""+"</p>"
                                 + "</td>"+"</tr>");
         }
