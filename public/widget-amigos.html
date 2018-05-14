@@ -69,7 +69,8 @@
             cargarMensajesNoLeidos(usuariosMostrar[i].email);
             $("#tablaCuerpo").append(
                 "<tr id="+usuariosMostrar[i]._id+">" + "<td>"
-                + "<a id='"+usuariosMostrar[i].nombre+"' onclick=mostrarChat('"+usuariosMostrar[i].email+"')>"+usuariosMostrar[i].nombre + "</a>" +"</td>" + "<td>"
+                + "<a id='"+usuariosMostrar[i].nombre+"' onclick=mostrarChat('"+usuariosMostrar[i].email+"')>"
+                +usuariosMostrar[i].nombre + "</a>" +"</td>" + "<td>"
                 + usuariosMostrar[i].email + "</td>"+"<td>" + "<p id="+usuariosMostrar[i].email+">"+""+"</p>"
                                 + "</td>"+"</tr>");
         }

@@ -29,28 +29,32 @@
         </thead>
         <tbody>
         {% for usuario in usuarios %}
-            {% if usuario.email != userLogged %}
                 <tr>
                     <td>{{ usuario.nombre }}</td>
                     <td>{{ usuario.email }}</td>
-                    {% for peticion in peticiones %}
-                        {% if usuario.email == peticion.amigo %}
-                            <td>Petición enviada</td>
-                            {% set boton = "false" %}
-                        {% elseif usuario.email == peticion.emisor %}
-                            <td>Petición recibida</td>
-                            {% set boton = "false" %}
-                        {% endif %}
-                    {% endfor %}
-                    {% for amigo in amigos %}
-                        {% if usuario.email == amigo.amigo %}
-                            <td>Ya sois amigos</td>
-                            {% set boton = "false" %}
-                        {% elseif usuario.email == amigo.emisor %}
-                            <td>Ya sois amigos</td>
-                            {% set boton = "false" %}
-                        {% endif %}
-                    {% endfor %}
+                    {% if usuario.email != userLogged %}
+                        {% for peticion in peticiones %}
+                            {% if usuario.email == peticion.amigo %}
+                                <td>Petición enviada</td>
+                                {% set boton = "false" %}
+                            {% elseif usuario.email == peticion.emisor %}
+                                <td>Petición recibida</td>
+                                {% set boton = "false" %}
+                            {% endif %}
+                        {% endfor %}
+                        {% for amigo in amigos %}
+                            {% if usuario.email == amigo.amigo %}
+                                <td>Ya sois amigos</td>
+                                {% set boton = "false" %}
+                            {% elseif usuario.email == amigo.emisor %}
+                                <td>Ya sois amigos</td>
+                                {% set boton = "false" %}
+                            {% endif %}
+                        {% endfor %}
+                    {% elseif usuario.email == userLogged %}
+                        <td></td>
+                        {% set boton = "false" %}
+                    {% endif %}
                     {% if boton == "true" %}
                         <td>
                             <a id="{{ usuario.email }}" class="btn btn-primary default"
@@ -60,7 +64,7 @@
 
                     {% set boton = "true" %}
                 </tr>
-            {% endif %}
+
         {% endfor %}
         </tbody>
     </table>

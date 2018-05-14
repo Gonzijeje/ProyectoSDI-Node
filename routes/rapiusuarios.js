@@ -31,7 +31,6 @@ module.exports = function(app, gestorBD) {
     //S2
     app.get("/api/usuarios", function(req, res) {
         var emailEmisor = res.usuario;
-        console.log("Email emisor" + emailEmisor);
         var criterio = {
             $and: [{
                 $or: [{emisor: emailEmisor }, {amigo: emailEmisor}]
@@ -80,12 +79,10 @@ module.exports = function(app, gestorBD) {
             lastMessage : new Date().getTime(),
         }
         var criterio3 = {
-            //email : emailAmigo,
             email : emailEmisor
         };
         var criterio2 = {
             email : emailAmigo,
-            //email : emailEmisor
         };
         var criterio = {
             $and: [{
