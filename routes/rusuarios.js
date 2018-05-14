@@ -9,6 +9,17 @@ module.exports = function(app, swig, gestorBD) {
 
     app.get("/usuarios", function(req, res) {
         var criterio = {};
+        var criterioPeticiones = {
+            $and : [{$or : [{emisor : req.session.usuario}, {amigo : req.session.usuario}]},
+                {aceptada : false}]
+        };
+        var criterioAmigos = {
+            $and : [{$or : [{emisor : req.session.usuario}, {amigo : req.session.usuario}]},
+                {aceptada : true}]
+        };
+        var criterioNotificaciones = {
+            $and : [{amigo : req.session.usuario}, {aceptada : false}]
+        };
         if( req.query.busqueda != null ){
             criterio = {$or : [{nombre : {$regex : ".*"+req.query.busqueda+".*"}},
                     {email : {$regex : ".*"+req.query.busqueda+".*"}}] };
@@ -21,19 +32,28 @@ module.exports = function(app, swig, gestorBD) {
             if (usuarios == null) {
                 res.send("/usuarios?mensaje=No hay usuarios");
             } else {
-
-                var pgUltima = total / 5;
-                if (total % 5 > 0) {
-                    pgUltima = pgUltima + 1;
-                }
-                var respuesta = swig.renderFile('views/bUsuarios.html',
-                    {
-                        usuarios: usuarios,
-                        pgActual: pg,
-                        pgUltima: pgUltima,
-                        userLogged: req.session.usuario
+                gestorBD.obtenerInvitaciones(criterioPeticiones, function (peticiones) {
+                    gestorBD.obtenerInvitaciones(criterioAmigos, function (amigos) {
+                        var pgUltima = total / 5;
+                        if (total % 5 > 0) {
+                            pgUltima = pgUltima + 1;
+                        }
+                        gestorBD.obtenerInvitaciones(criterioNotificaciones,function (inv) {
+                            var respuesta = swig.renderFile('views/bUsuarios.html',
+                                {
+                                    usuarios: usuarios,
+                                    pgActual: pg,
+                                    pgUltima: pgUltima,
+                                    userLogged: req.session.usuario,
+                                    peticiones: peticiones,
+                                    amigos: amigos,
+                                    boton: "true",
+                                    notificaciones : inv.length
+                                });
+                            res.send(respuesta);
+                        });
                     });
-                res.send(respuesta);
+                });
             }
         });
     });
@@ -61,6 +81,7 @@ module.exports = function(app, swig, gestorBD) {
             if(usuarioObtenido == null || usuarioObtenido.length == 0){
                 gestorBD.insertarUsuario(usuario, function(id) {
                     if (id == null){
+                        req.session.usuario = null;
                         res.redirect("/registrarse?mensaje=Error")
                     } else {
                         req.session.usuario = usuario.email;
@@ -139,6 +160,9 @@ module.exports = function(app, swig, gestorBD) {
             pg = 1;
         }
         var criterio = {$and : [{amigo : req.session.usuario}, {aceptada : false}]};
+        var criterioNotificaciones = {
+            $and : [{amigo : req.session.usuario}, {aceptada : false}]
+        };
         gestorBD.obtenerInvitacionesPg(criterio, pg, function(invita, total){
             if (invita == null) {
                 res.send("Error al listar ");
@@ -147,14 +171,17 @@ module.exports = function(app, swig, gestorBD) {
                 if (total % 5 > 0) {
                     pgUltima = pgUltima + 1;
                 }
-                var respuesta = swig.renderFile('views/blistInvitations.html',
-                    {
-                        invitaciones: invita,
-                        pgActual: pg,
-                        pgUltima: pgUltima,
-                        userLogged : req.session.usuario
-                    });
-                res.send(respuesta);
+                gestorBD.obtenerInvitaciones(criterioNotificaciones,function (peticiones) {
+                    var respuesta = swig.renderFile('views/blistInvitations.html',
+                        {
+                            invitaciones: invita,
+                            pgActual: pg,
+                            pgUltima: pgUltima,
+                            userLogged : req.session.usuario,
+                            notificaciones : peticiones.length
+                        });
+                    res.send(respuesta);
+                });
             }
         })
     });
@@ -175,7 +202,11 @@ module.exports = function(app, swig, gestorBD) {
         })
     });
     app.get('/usuarios/listFriends', function(req, res){
-        var criterio = {$and : [{$or : [{emisor : req.session.usuario}, {amigo : req.session.usuario}]}, {aceptada : true}]};
+        var criterio = {$and : [{$or : [{emisor : req.session.usuario},
+                    {amigo : req.session.usuario}]}, {aceptada : true}]};
+        var criterioNotificaciones = {
+            $and : [{amigo : req.session.usuario}, {aceptada : false}]
+        };
         gestorBD.obtenerInvitaciones(criterio, function (invitaciones) {
             if(invitaciones == null){
                 res.send("Error");
@@ -202,15 +233,17 @@ module.exports = function(app, swig, gestorBD) {
                         if (total % 5 > 0 ){ // Sobran decimales
                             pgUltima = pgUltima+1;
                         }
-
-                        var respuesta = swig.renderFile('views/listFriends.html',
-                            {
-                                usuarios : usuarios,
-                                pgActual : pg,
-                                pgUltima : pgUltima,
-                                userLogged : req.session.usuario
-                            });
-                        res.send(respuesta);
+                        gestorBD.obtenerInvitaciones(criterioNotificaciones,function (peticiones) {
+                            var respuesta = swig.renderFile('views/listFriends.html',
+                                {
+                                    usuarios : usuarios,
+                                    pgActual : pg,
+                                    pgUltima : pgUltima,
+                                    userLogged : req.session.usuario,
+                                    notificaciones : peticiones.length
+                                });
+                            res.send(respuesta);
+                        });
                     }
                 });
             }

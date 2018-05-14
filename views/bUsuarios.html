@@ -33,10 +33,32 @@
                 <tr>
                     <td>{{ usuario.nombre }}</td>
                     <td>{{ usuario.email }}</td>
-                    <td>
-                        <a id="{{ usuario.email }}" class="btn btn-primary pull-right"
-                           href="/usuarios/anadir/{{ usuario.email}}">Añadir amigo</a>
-                    </td>
+                    {% for peticion in peticiones %}
+                        {% if usuario.email == peticion.amigo %}
+                            <td>Petición enviada</td>
+                            {% set boton = "false" %}
+                        {% elseif usuario.email == peticion.emisor %}
+                            <td>Petición recibida</td>
+                            {% set boton = "false" %}
+                        {% endif %}
+                    {% endfor %}
+                    {% for amigo in amigos %}
+                        {% if usuario.email == amigo.amigo %}
+                            <td>Ya sois amigos</td>
+                            {% set boton = "false" %}
+                        {% elseif usuario.email == amigo.emisor %}
+                            <td>Ya sois amigos</td>
+                            {% set boton = "false" %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if boton == "true" %}
+                        <td>
+                            <a id="{{ usuario.email }}" class="btn btn-primary default"
+                                href="/usuarios/anadir/{{ usuario.email}}">Añadir amigo</a>
+                        </td>
+                    {% endif %}
+
+                    {% set boton = "true" %}
                 </tr>
             {% endif %}
         {% endfor %}
