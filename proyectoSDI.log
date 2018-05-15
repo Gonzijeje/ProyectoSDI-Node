@@ -1,0 +1,196 @@
+
+[2018-05-15T16:36:19.296] [INFO] proyectoSDI - Usuario registrado: usuarioPrin@uniovi.es
+[2018-05-15T16:36:22.159] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:36:22.360] [INFO] proyectoSDI - Usuario desconectado: usuarioPrin@uniovi.es
+[2018-05-15T16:36:25.048] [INFO] proyectoSDI - Usuario identificado: usuarioPrin@uniovi.es
+[2018-05-15T16:36:27.859] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:36:28.059] [INFO] proyectoSDI - Usuario desconectado: usuarioPrin@uniovi.es
+[2018-05-15T16:36:29.542] [INFO] proyectoSDI - Inicio de sesión inválido
+[2018-05-15T16:36:31.034] [INFO] proyectoSDI - Usuario identificado: usuarioPrin@uniovi.es
+[2018-05-15T16:36:33.829] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:36:37.491] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:36:37.709] [INFO] proyectoSDI - Usuario desconectado: usuarioPrin@uniovi.es
+[2018-05-15T16:36:40.320] [INFO] proyectoSDI - Usuario registrado: pepe@uniovi.es
+[2018-05-15T16:36:43.231] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:36:43.468] [INFO] proyectoSDI - Usuario desconectado: pepe@uniovi.es
+[2018-05-15T16:36:44.879] [INFO] proyectoSDI - Usuario identificado: usuarioPrin@uniovi.es
+[2018-05-15T16:36:47.754] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:36:55.971] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:36:56.209] [INFO] proyectoSDI - Usuario desconectado: usuarioPrin@uniovi.es
+[2018-05-15T16:36:57.970] [INFO] proyectoSDI - Usuario identificado: usuarioPrin@uniovi.es
+[2018-05-15T16:37:00.893] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:37:09.060] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:37:10.595] [INFO] proyectoSDI - Petición de amistad enviada a: pepe@uniovi.es
+[2018-05-15T16:37:13.231] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:37:13.484] [INFO] proyectoSDI - Usuario desconectado: usuarioPrin@uniovi.es
+[2018-05-15T16:37:14.610] [INFO] proyectoSDI - Usuario identificado: pepe@uniovi.es
+[2018-05-15T16:37:17.533] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:37:19.432] [INFO] proyectoSDI - Listando invitaciones de: pepe@uniovi.es
+[2018-05-15T16:37:19.715] [INFO] proyectoSDI - Usuario desconectado: pepe@uniovi.es
+[2018-05-15T16:37:21.269] [INFO] proyectoSDI - Usuario identificado: usuarioPrin@uniovi.es
+[2018-05-15T16:37:23.930] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:37:32.208] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:37:32.464] [INFO] proyectoSDI - Usuario desconectado: usuarioPrin@uniovi.es
+[2018-05-15T16:37:33.951] [INFO] proyectoSDI - Usuario identificado: pepe@uniovi.es
+[2018-05-15T16:37:36.761] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:37:38.496] [INFO] proyectoSDI - Listando invitaciones de: pepe@uniovi.es
+[2018-05-15T16:37:38.762] [INFO] proyectoSDI - Usuario desconectado: pepe@uniovi.es
+[2018-05-15T16:37:40.165] [INFO] proyectoSDI - Usuario identificado: pepe@uniovi.es
+[2018-05-15T16:37:43.023] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:37:45.064] [INFO] proyectoSDI - Listando invitaciones de: pepe@uniovi.es
+[2018-05-15T16:37:46.011] [INFO] proyectoSDI - Petición amistad aceptada-Nuevo amigo añadido a: pepe@uniovi.es
+[2018-05-15T16:37:47.637] [INFO] proyectoSDI - Listando invitaciones de: pepe@uniovi.es
+[2018-05-15T16:37:47.819] [INFO] proyectoSDI - Usuario desconectado: pepe@uniovi.es
+[2018-05-15T16:37:49.440] [INFO] proyectoSDI - Usuario identificado: usuarioPrin@uniovi.es
+[2018-05-15T16:37:52.162] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:37:54.532] [INFO] proyectoSDI - Listando amigos de: usuarioPrin@uniovi.es
+[2018-05-15T16:37:54.770] [INFO] proyectoSDI - Usuario desconectado: usuarioPrin@uniovi.es
+[2018-05-15T16:37:56.335] [INFO] proyectoSDI - JQuery--Usuario autenticado: usuarioPrin@uniovi.es
+[2018-05-15T16:37:57.864] [INFO] proyectoSDI - JQuery--Mostrando amigos de: usuarioPrin@uniovi.es
+[2018-05-15T16:38:00.610] [INFO] proyectoSDI - Usuario registrado: usuario1@uniovi.es
+[2018-05-15T16:38:03.392] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:38:03.647] [INFO] proyectoSDI - Usuario desconectado: usuario1@uniovi.es
+[2018-05-15T16:38:05.088] [INFO] proyectoSDI - Usuario identificado: usuarioPrin@uniovi.es
+[2018-05-15T16:38:08.628] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:38:17.074] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:38:18.722] [INFO] proyectoSDI - Petición de amistad enviada a: usuario1@uniovi.es
+[2018-05-15T16:38:21.626] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:38:21.827] [INFO] proyectoSDI - Usuario desconectado: usuarioPrin@uniovi.es
+[2018-05-15T16:38:23.064] [INFO] proyectoSDI - Usuario identificado: usuario1@uniovi.es
+[2018-05-15T16:38:25.910] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:38:27.587] [INFO] proyectoSDI - Listando invitaciones de: usuario1@uniovi.es
+[2018-05-15T16:38:28.585] [INFO] proyectoSDI - Petición amistad aceptada-Nuevo amigo añadido a: usuario1@uniovi.es
+[2018-05-15T16:38:30.051] [INFO] proyectoSDI - Listando invitaciones de: usuario1@uniovi.es
+[2018-05-15T16:38:30.232] [INFO] proyectoSDI - Usuario desconectado: usuario1@uniovi.es
+[2018-05-15T16:38:32.468] [INFO] proyectoSDI - Usuario registrado: usuario2@uniovi.es
+[2018-05-15T16:38:35.255] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:38:35.472] [INFO] proyectoSDI - Usuario desconectado: usuario2@uniovi.es
+[2018-05-15T16:38:36.783] [INFO] proyectoSDI - Usuario identificado: usuarioPrin@uniovi.es
+[2018-05-15T16:38:39.600] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:38:47.805] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:38:49.327] [INFO] proyectoSDI - Petición de amistad enviada a: usuario2@uniovi.es
+[2018-05-15T16:38:52.053] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:38:52.253] [INFO] proyectoSDI - Usuario desconectado: usuarioPrin@uniovi.es
+[2018-05-15T16:38:53.331] [INFO] proyectoSDI - Usuario identificado: usuario2@uniovi.es
+[2018-05-15T16:38:56.016] [INFO] proyectoSDI - Listando usuarios
+[2018-05-15T16:38:57.638] [INFO] proyectoSDI - Listando invitaciones de: usuario2@uniovi.es
+[2018-05-15T16:38:58.582] [INFO] proyectoSDI - Petición amistad aceptada-Nuevo amigo añadido a: usuario2@uniovi.es
+[2018-05-15T16:38:59.965] [INFO] proyectoSDI - Listando invitaciones de: usuario2@uniovi.es
+[2018-05-15T16:39:00.142] [INFO] proyectoSDI - Usuario desconectado: usuario2@uniovi.es
+[2018-05-15T16:39:01.413] [INFO] proyectoSDI - JQuery--Usuario autenticado: usuarioPrin@uniovi.es
+[2018-05-15T16:39:02.742] [INFO] proyectoSDI - JQuery--Mostrando amigos de: usuarioPrin@uniovi.es
+[2018-05-15T16:39:04.192] [INFO] proyectoSDI - JQuery--Usuario autenticado: usuarioPrin@uniovi.es
+[2018-05-15T16:39:05.557] [INFO] proyectoSDI - JQuery--Mostrando amigos de: usuarioPrin@uniovi.es
+[2018-05-15T16:39:11.198] [INFO] proyectoSDI - JQuery--Usuario autenticado: usuarioPrin@uniovi.es
+[2018-05-15T16:39:12.532] [INFO] proyectoSDI - JQuery--Mostrando amigos de: usuarioPrin@uniovi.es
+[2018-05-15T16:39:16.675] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:39:17.413] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:39:18.441] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:39:19.392] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:39:20.435] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:39:21.299] [INFO] proyectoSDI - Mensaje enviado de: usuarioPrin@uniovi.es a: pepe@uniovi.es
+[2018-05-15T16:39:21.400] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:39:21.955] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:39:22.362] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:39:23.388] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:39:24.395] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:39:25.365] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:39:26.378] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:39:26.509] [INFO] proyectoSDI - Mensaje enviado de: usuarioPrin@uniovi.es a: pepe@uniovi.es
+[2018-05-15T16:39:27.176] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:39:27.396] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:39:28.492] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:39:29.371] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:39:30.411] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:39:31.616] [INFO] proyectoSDI - JQuery--Usuario autenticado: usuarioPrin@uniovi.es
+[2018-05-15T16:39:31.778] [INFO] proyectoSDI - Mensaje enviado de: usuarioPrin@uniovi.es a: pepe@uniovi.es
+[2018-05-15T16:39:32.942] [INFO] proyectoSDI - JQuery--Mostrando amigos de: usuarioPrin@uniovi.es
+[2018-05-15T16:39:36.730] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:39:37.706] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:39:38.484] [INFO] proyectoSDI - JQuery--Usuario autenticado: usuarioPrin@uniovi.es
+[2018-05-15T16:39:39.853] [INFO] proyectoSDI - JQuery--Mostrando amigos de: usuarioPrin@uniovi.es
+[2018-05-15T16:39:43.620] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario1@uniovi.es
+[2018-05-15T16:39:44.742] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario1@uniovi.es
+[2018-05-15T16:39:45.693] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario1@uniovi.es
+[2018-05-15T16:39:46.772] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario1@uniovi.es
+[2018-05-15T16:39:47.658] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario1@uniovi.es
+[2018-05-15T16:39:48.496] [INFO] proyectoSDI - Mensaje enviado de: usuarioPrin@uniovi.es a: usuario1@uniovi.es
+[2018-05-15T16:39:48.594] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario1@uniovi.es
+[2018-05-15T16:39:49.310] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario1@uniovi.es
+[2018-05-15T16:39:49.738] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario1@uniovi.es
+[2018-05-15T16:39:50.605] [INFO] proyectoSDI - JQuery--Usuario autenticado: usuarioPrin@uniovi.es
+[2018-05-15T16:39:51.922] [INFO] proyectoSDI - JQuery--Mostrando amigos de: usuarioPrin@uniovi.es
+[2018-05-15T16:39:55.819] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:39:56.771] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:39:57.741] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:39:58.810] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:39:59.786] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:00.659] [INFO] proyectoSDI - Mensaje enviado de: usuarioPrin@uniovi.es a: usuario2@uniovi.es
+[2018-05-15T16:40:00.886] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:01.303] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:01.716] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:02.652] [INFO] proyectoSDI - JQuery--Usuario autenticado: usuario2@uniovi.es
+[2018-05-15T16:40:04.042] [INFO] proyectoSDI - JQuery--Mostrando amigos de: usuario2@uniovi.es
+[2018-05-15T16:40:07.794] [INFO] proyectoSDI - Mostrando mensajes entre: usuario2@uniovi.es y: usuarioPrin@uniovi.es
+[2018-05-15T16:40:08.860] [INFO] proyectoSDI - Mostrando mensajes entre: usuario2@uniovi.es y: usuarioPrin@uniovi.es
+[2018-05-15T16:40:09.711] [INFO] proyectoSDI - Mostrando mensajes entre: usuario2@uniovi.es y: usuarioPrin@uniovi.es
+[2018-05-15T16:40:10.690] [INFO] proyectoSDI - Mostrando mensajes entre: usuario2@uniovi.es y: usuarioPrin@uniovi.es
+[2018-05-15T16:40:11.697] [INFO] proyectoSDI - Mostrando mensajes entre: usuario2@uniovi.es y: usuarioPrin@uniovi.es
+[2018-05-15T16:40:12.484] [INFO] proyectoSDI - JQuery--Usuario autenticado: usuarioPrin@uniovi.es
+[2018-05-15T16:40:13.810] [INFO] proyectoSDI - JQuery--Mostrando amigos de: usuarioPrin@uniovi.es
+[2018-05-15T16:40:17.734] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:18.884] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:19.725] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:20.711] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:21.770] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:22.534] [INFO] proyectoSDI - Mensaje enviado de: usuarioPrin@uniovi.es a: usuario2@uniovi.es
+[2018-05-15T16:40:22.683] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:23.173] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:23.687] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:24.773] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:25.721] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:26.927] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:27.854] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:28.644] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:28.747] [INFO] proyectoSDI - Mensaje enviado de: usuarioPrin@uniovi.es a: usuario2@uniovi.es
+[2018-05-15T16:40:29.386] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:29.649] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:31.138] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:31.879] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:32.717] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:33.699] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:34.646] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:34.981] [INFO] proyectoSDI - Mensaje enviado de: usuarioPrin@uniovi.es a: usuario2@uniovi.es
+[2018-05-15T16:40:35.722] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:35.800] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario2@uniovi.es
+[2018-05-15T16:40:37.228] [INFO] proyectoSDI - JQuery--Usuario autenticado: usuario2@uniovi.es
+[2018-05-15T16:40:38.511] [INFO] proyectoSDI - JQuery--Mostrando amigos de: usuario2@uniovi.es
+[2018-05-15T16:40:41.683] [INFO] proyectoSDI - JQuery--Usuario autenticado: usuarioPrin@uniovi.es
+[2018-05-15T16:40:42.929] [INFO] proyectoSDI - JQuery--Mostrando amigos de: usuarioPrin@uniovi.es
+[2018-05-15T16:40:47.133] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:40:47.890] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:40:48.880] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:40:49.895] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:40:50.921] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:40:51.892] [INFO] proyectoSDI - Mensaje enviado de: usuarioPrin@uniovi.es a: pepe@uniovi.es
+[2018-05-15T16:40:52.006] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:40:52.538] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:40:52.862] [INFO] proyectoSDI - JQuery--Mostrando amigos de: usuarioPrin@uniovi.es
+[2018-05-15T16:40:55.878] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:40:56.198] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:40:57.021] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: pepe@uniovi.es
+[2018-05-15T16:40:57.566] [INFO] proyectoSDI - JQuery--Usuario autenticado: usuario1@uniovi.es
+[2018-05-15T16:40:58.811] [INFO] proyectoSDI - JQuery--Mostrando amigos de: usuario1@uniovi.es
+[2018-05-15T16:41:01.574] [INFO] proyectoSDI - Mostrando mensajes entre: usuario1@uniovi.es y: usuarioPrin@uniovi.es
+[2018-05-15T16:41:02.527] [INFO] proyectoSDI - Mostrando mensajes entre: usuario1@uniovi.es y: usuarioPrin@uniovi.es
+[2018-05-15T16:41:03.520] [INFO] proyectoSDI - Mostrando mensajes entre: usuario1@uniovi.es y: usuarioPrin@uniovi.es
+[2018-05-15T16:41:04.531] [INFO] proyectoSDI - Mostrando mensajes entre: usuario1@uniovi.es y: usuarioPrin@uniovi.es
+[2018-05-15T16:41:05.505] [INFO] proyectoSDI - Mostrando mensajes entre: usuario1@uniovi.es y: usuarioPrin@uniovi.es
+[2018-05-15T16:41:06.664] [INFO] proyectoSDI - Mostrando mensajes entre: usuario1@uniovi.es y: usuarioPrin@uniovi.es
+[2018-05-15T16:41:07.621] [INFO] proyectoSDI - Mostrando mensajes entre: usuario1@uniovi.es y: usuarioPrin@uniovi.es
+[2018-05-15T16:41:08.571] [INFO] proyectoSDI - Mensaje enviado de: usuario1@uniovi.es a: usuarioPrin@uniovi.es
+[2018-05-15T16:41:08.574] [INFO] proyectoSDI - Mostrando mensajes entre: usuario1@uniovi.es y: usuarioPrin@uniovi.es
+[2018-05-15T16:41:09.222] [INFO] proyectoSDI - JQuery--Usuario autenticado: usuarioPrin@uniovi.es
+[2018-05-15T16:41:10.464] [INFO] proyectoSDI - JQuery--Mostrando amigos de: usuarioPrin@uniovi.es
+[2018-05-15T16:41:13.487] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario1@uniovi.es
+[2018-05-15T16:41:14.563] [INFO] proyectoSDI - Mostrando mensajes entre: usuarioPrin@uniovi.es y: usuario1@uniovi.es

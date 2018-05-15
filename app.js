@@ -20,6 +20,15 @@ app.use(expressSession({
 var jwt = require('jsonwebtoken');
 app.set('jwt',jwt);
 
+const log4js = require('log4js');
+log4js.configure({
+    appenders: { proyectoSDI: { type: 'file', filename: 'proyectoSDI.log' } },
+    categories: { default: { appenders: ['proyectoSDI'], level: 'info' } }
+});
+
+const logger = log4js.getLogger('proyectoSDI');
+
+
 var crypto = require('crypto');
 
 var fileUpload = require('express-fileupload');
@@ -77,7 +86,6 @@ routerUsuarioSession.use(function(req, res, next) {
         // dejamos correr la petición
         next();
     } else {
-        console.log("va a : "+req.session.destino)
         res.redirect("/identificarse");
     }
 });
@@ -94,8 +102,8 @@ app.set('clave','abcdefg');
 app.set('crypto',crypto);
 
 //Rutas/controladores por lógica
-require("./routes/rusuarios.js")(app, swig,gestorBD); // (app, param1, param2, etc.)
-require("./routes/rapiusuarios.js")(app, gestorBD);
+require("./routes/rusuarios.js")(app, swig,gestorBD,logger); // (app, param1, param2, etc.)
+require("./routes/rapiusuarios.js")(app, gestorBD,logger);
 
 
 app.get('/resetBD', function (req, res) {

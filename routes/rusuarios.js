@@ -1,4 +1,4 @@
-module.exports = function(app, swig, gestorBD) {
+module.exports = function(app, swig, gestorBD, logger) {
 
     app.get("/", function (req, res) {
         var respuesta = swig.renderFile('views/bindex.html', {
@@ -50,6 +50,7 @@ module.exports = function(app, swig, gestorBD) {
                                     boton: "true",
                                     notificaciones : inv.length
                                 });
+                            logger.info("Listando usuarios");
                             res.send(respuesta);
                         });
                     });
@@ -81,9 +82,11 @@ module.exports = function(app, swig, gestorBD) {
             if(usuarioObtenido == null || usuarioObtenido.length == 0){
                 gestorBD.insertarUsuario(usuario, function(id) {
                     if (id == null){
+                        logger.info("Intento de registro fallido");
                         req.session.usuario = null;
                         res.redirect("/registrarse?mensaje=Error")
                     } else {
+                        logger.info("Usuario registrado: "+usuario.email);
                         req.session.usuario = usuario.email;
                         res.redirect("/usuarios");
                     }
@@ -111,10 +114,12 @@ module.exports = function(app, swig, gestorBD) {
         gestorBD.obtenerUsuarios(criterio, function(usuarios) {
             if (usuarios == null || usuarios.length == 0) {
                 req.session.usuario = null;
+                logger.info("Inicio de sesión inválido");
                 res.redirect("/identificarse" +
                     "?mensaje=Email o password incorrecto"+
                     "&tipoMensaje=alert-danger ");
             } else {
+                logger.info("Usuario identificado: "+usuarios[0].email);
                 req.session.usuario = usuarios[0].email;
                 res.redirect("/usuarios");
 
@@ -144,6 +149,7 @@ module.exports = function(app, swig, gestorBD) {
                         res.send("Error al añadir amigo");
                     }
                     else{
+                        logger.info("Petición de amistad enviada a: "+emailAmigo);
                         res.redirect("/usuarios");
                     }
                 })
@@ -180,6 +186,7 @@ module.exports = function(app, swig, gestorBD) {
                             userLogged : req.session.usuario,
                             notificaciones : peticiones.length
                         });
+                    logger.info("Listando invitaciones de: "+req.session.usuario);
                     res.send(respuesta);
                 });
             }
@@ -197,6 +204,7 @@ module.exports = function(app, swig, gestorBD) {
                 res.send("Error al añadir amigo");
             }
             else{
+                logger.info("Petición amistad aceptada-Nuevo amigo añadido a: "+req.session.usuario);
                 res.redirect('/usuarios/listInvitations');
             }
         })
@@ -242,6 +250,7 @@ module.exports = function(app, swig, gestorBD) {
                                     userLogged : req.session.usuario,
                                     notificaciones : peticiones.length
                                 });
+                            logger.info("Listando amigos de: "+req.session.usuario);
                             res.send(respuesta);
                         });
                     }
@@ -250,6 +259,7 @@ module.exports = function(app, swig, gestorBD) {
         })
     })
     app.get('/desconectarse', function (req, res) {
+        logger.info("Usuario desconectado: "+req.session.usuario);
         req.session.usuario = null;
         res.redirect("/identificarse");
     })

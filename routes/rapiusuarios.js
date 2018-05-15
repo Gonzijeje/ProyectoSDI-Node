@@ -1,4 +1,4 @@
-module.exports = function(app, gestorBD) {
+module.exports = function(app, gestorBD,logger) {
 
     //S1
     app.post("/api/autenticar", function(req, res) {
@@ -18,6 +18,7 @@ module.exports = function(app, gestorBD) {
                 var token = app.get('jwt').sign(
                     {usuario: criterio.email , tiempo: Date.now()/1000},
                     "secreto");
+                logger.info("JQuery--Usuario autenticado: "+req.body.email);
                 res.status(200);
                 res.json({
                     autenticado : true,
@@ -60,9 +61,7 @@ module.exports = function(app, gestorBD) {
                             error : "se ha producido un error"
                         })
                     } else {
-                        for(i=0;i<usuarios.length;i++){
-                            console.log(usuarios[i].lastMessage);
-                        }
+                        logger.info("JQuery--Mostrando amigos de: "+emailEmisor);
                         res.status(200);
                         res.send( JSON.stringify(usuarios) );
                     }
@@ -133,6 +132,7 @@ module.exports = function(app, gestorBD) {
                         });
 
                         res.status(201);
+                        logger.info("Mensaje enviado de: "+emailEmisor+" a: "+emailAmigo);
                         res.json({
                             mensaje: "mensaje insertardo",
                             _id: idMensaje
@@ -168,6 +168,7 @@ module.exports = function(app, gestorBD) {
                     error : "se ha producido un error"
                 })
             } else {
+                logger.info("Mostrando mensajes entre: "+emailEmisor+" y: "+emailAmigo);
                 res.status(200);
                 res.send( JSON.stringify(mensajes) );
             }
